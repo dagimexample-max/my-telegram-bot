@@ -58,11 +58,12 @@ export default {
       try {
         const payload = await request.json();
 
-        // የቆዩ መልእክቶችን (ከ1 ደቂቃ በላይ የሆኑትን) ችላ ለማለት
+        // የቆዩ መልእክቶችን (ከ5 ደቂቃ በላይ የሆኑትን) ችላ ለማለት
+        // ሰዓቱን ከ60 ወደ 300 የቀየርኩት በሰርቨሮች መካከል የሰዓት ልዩነት ቢኖር እንኳ እንዳይዘጋብህ ነው
         const msgCheck = payload.message || payload.callback_query?.message;
         if (msgCheck && msgCheck.date) {
           const currentTime = Math.floor(Date.now() / 1000);
-          if (currentTime - msgCheck.date > 60) {
+          if (currentTime - msgCheck.date > 300) { 
             return new Response("OK", { status: 200 });
           }
         }
@@ -132,8 +133,6 @@ export default {
             await sendLeaderboard(env, chatId, messageId);
           } else if (data === "back_to_main") {
             await sendStartMenu(env, chatId, messageId, fullName);
-          } else if (data === "back_to_main") {
-            await sendStartMenu(env, chatId, messageId, fullName);
           } else if (data.startsWith("back_to_grade_")) {
             await sendSubjects(env, chatId, messageId, data.replace("back_to_grade_", ""));
           } else if (data.startsWith("back_to_units_")) {
@@ -150,7 +149,9 @@ export default {
     return new Response("Bot is active!");
   },
 };
-          
+            
+
+
 
 // --- GUI Functions ---
 async function sendStartMenu(env, chatId, editMessageId = null, fullName = "Student") {
