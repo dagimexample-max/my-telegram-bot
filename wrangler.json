@@ -1,7 +1,6 @@
-
 {
-  "name": "
-my-telegram-bot.habtamu-yifiru-official.workers.dev",
+  "name": "ethio-quiz-bot",
   "compatibility_date": "2026-02-04",
   "main": "worker.js"
 }
+
