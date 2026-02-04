@@ -63,7 +63,7 @@ export default {
         const msgCheck = payload.message || payload.callback_query?.message;
         if (msgCheck && msgCheck.date) {
           const currentTime = Math.floor(Date.now() / 1000);
-          if (currentTime - msgCheck.date > 300) { 
+          if (currentTime - msgCheck.date > 30) { 
             return new Response("OK", { status: 200 });
           }
         }
