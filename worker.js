@@ -142,7 +142,7 @@ export default {
 
 // --- GUI Functions ---
 async function sendStartMenu(env, chatId, editMessageId = null, fullName = "Student") {
-  const welcomeText = `*👋 ሰላም ተማሪ!*\n\n እውቀትዎን ለመፈተን ዝግጁ ነዎት? ከታች የክፍል ደረጃዎን ይምረጡና አሁኑኑ ልምምድ ይጀምሩ! 🚀`;
+  const welcomeText = `👋 *ሰላም ተማሪ!*\n\n እውቀትዎን ለመፈተን ዝግጁ ነዎት? ከታች የክፍል ደረጃዎን ይምረጡና አሁኑኑ ልምምድ ይጀምሩ! 🚀`;
   const keyboard = [
     [{ text: "📚 Grade 9", callback_data: "grade_9" }, { text: "📚 Grade 10", callback_data: "grade_10" }],
     [{ text: "📚 Grade 11", callback_data: "grade_11" }, { text: "📚 Grade 12", callback_data: "grade_12" }],
